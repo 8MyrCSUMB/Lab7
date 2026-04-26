@@ -67,7 +67,7 @@ app.post("/newQuote", isUserAuthenticated, async (req, res) => {
     res.redirect("/quotes");
 });
 
-app.get("/allAuthors", async (req, res) => {
+app.get("/allAuthors", isUserAuthenticated, async (req, res) => {
     let sql = `SELECT authorId, firstname, lastname FROM authors ORDER BY lastname;`
     const [authors] = await pool.query(sql);
     res.render("allAuthors.ejs", { authors });
