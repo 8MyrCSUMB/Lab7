@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<%- include('partials/head.ejs') %>
+
+    <body class="text-center">
+        <%- include('partials/navbar.ejs') %>
+
+            <form action="/newAuthor" method="POST">
+                <label for="AuthorFirstName">First Name</label>
+                <input type="text" name="firstname" id="AuthorFirstName"> <br>
+                <label for="AuthorLastName">Last Name</label>
+                <input type="text" name="lastname" id="AuthorLastName"> <br>
+                <label for="AuthorDob">dob</label>
+                <input type="date" name="dob" id="AuthorDob"> <br>
+                <label for="AuthorDod">dod</label>
+                <input type="date" name="dod" id="AuthorDod"> <br>
+                <label for="AuthorSex">Sex</label>
+                <span>M</span>
+                <input type="radio" name="sex" id="AuthorSex" value="M">
+                <span>F</span>
+                <input type="radio" name="sex" id="AuthorSex" value="F"> <br>
+                <label for="AuthorProfession">Profession</label>
+                <input type="text" name="profession" id="AuthorProfession"> <br>
+                <label for="AuthorCountry">Country</label>
+                <input type="text" name="country" id="AuthorCountry"> <br>
+                <label for="AuthorPortrait">Portrait</label>
+                <input type="text" name="portrait" id="AuthorPortrait"> <br>
+                <label for="AuthorBiography">Biography</label>
+                <input type="text" name="biography" id="AuthorBiography"> <br>
+
+
+
+                <button class="btn btn-warning">Submit</button>
+
+            </form>
+    </body>
+
+</html>

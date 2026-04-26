@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<%- include('partials/head.ejs') %>
+
+    <body class="text-center">
+
+        <%- include('partials/navbar.ejs') %>
+
+            <h1>All Authors</h1>
+
+            <% for (let author of authors) { %>
+
+                <br>
+                <a href="/deleteAuthor?authorId=<%= author.authorId %>">Delete</a>
+                <a href="/updateAuthor?authorId=<%= author.authorId %>">Update</a>
+                <%= author.authorId %>
+                    <%= author.firstname %>
+                        <%= author.lastname %> <br>
+
+                            <% } %>
+
+    </body>
+
+</html>

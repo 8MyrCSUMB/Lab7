@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<%- include('partials/head.ejs') %>
+
+    <body class="text-center">
+        <%- include('partials/navbar.ejs') %>
+
+            <h1>Update Author</h1>
+
+            <%= authorInfo[0].firstname %> <br>
+                <%= authorInfo[0].lastname %> <br>
+                    <%= authorInfo[0].dob %> <br>
+                        <%= authorInfo[0].sex %>
+                            <%= authorInfo[0].biography %> <br> <br>
+
+
+
+                                <form action="/updateAuthor" method="POST">
+                                    <input type="hidden" name="authorId" value="<%= authorInfo[0].authorId %>"> <br>
+                                    First Name:
+                                    <input type="text" name="firstName" value="<%= authorInfo[0].firstName %>"> <br>
+                                    Last Name:
+                                    <input type="text" name="lastName" value="<%= authorInfo[0].lastName %>"> <br>
+                                    Date of Birth: <input type="date" name="dob" value="<%= authorInfo[0].ISOdob %>">
+                                    <br>
+                                    Sex :
+                                    <label><input type="radio" <% if (authorInfo[0].sex=='F' ) { %>
+                                        checked
+                                        <% } %>
+                                            value="F" name="sex"> F
+                                    </label>
+                                    <label><input type="radio" <%=(authorInfo[0].sex=='M' )?"checked":""%>
+
+                                        value="M" name="sex"> M </label> <br>
+                                    Biography: <textarea name="bio"></textarea> <br>
+
+                                    <button> Update Author! </button>
+
+                                </form>
+
+
+
+
+    </body>
+
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<%- include('partials/head.ejs') %>
+
+    <body class="text-center">
+
+        <%- include('partials/navbar.ejs') %>
+
+
+
+            <form action="/newQuote" method="POST" id="quoteForm">
+                <label for="quoteInput">Quote</label>
+                <input id="quoteInput" name="quote">
+                <span id="quoteError"></span>
+                <label for="authorSelect">Author</label>
+                <select name="authorId" id="authorSelect">
+
+                    <% for (let author of authorsList) { %>
+                        <option value="<%= author.authorId %>">
+                            <%= author.firstName %>
+                                <%= author.lastName %>
+                        </option>
+
+                        </a> <br><br>
+                        <% } %>
+
+                </select>
+                <label for="authorSelect">Category</label>
+                <select name="category" id="catSelect">
+
+                    <% for (let cat of catList) { %>
+                        <option value="<%= cat.category %>">
+                            <%= cat.category %>
+                        </option>
+
+                        </a> <br><br>
+                        <% } %>
+
+                </select>
+                <button id="quoteBtn" class="btn btn-warning">Submit</button>
+            </form> <br>
+
+            <script>
+
+                form.addEventListener("submit", error)
+                let form = document.querySelector("#quoteForm")
+                let submit = document.querySelector("quoteBtn");
+                let span = document.querySelector("#quoteError");
+                let input = document.querySelector("#quoteInput")
+
+                function error() {
+                    if (input.length < 5) {
+                        span.textContent = "Must be at least 5 char.";
+                        span.style.color = "red";
+                        event.preventDefault();
+                    }
+                }
+            </script>
+    </body>
+
+</html>

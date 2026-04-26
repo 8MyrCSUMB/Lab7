@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<%- include('partials/head.ejs') %>
+
+    <body class="text-center">
+
+        <%- include('partials/navbar.ejs') %>
+            <h1> All Quotes </h1>
+
+            <% for (let i of quotes) { %>
+
+                <a href="/deleteQuote?quoteId=<%= i.quoteId %>">Delete</a>
+                <a href="/updateQuote?quoteId=<%= i.quoteId %>">Update</a>
+
+                <%= i.quote %> <br>
+                    <% } %>
+    </body>
+
+</html>

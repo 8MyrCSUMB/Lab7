@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<%- include('partials/head.ejs') %>
+
+    <body class="text-center">
+
+        <%- include('partials/navbar.ejs') %>
+
+            <h1> Updating Quote </h1>
+
+
+
+
+            <form action="/updateQuote" method="POST">
+                <input type="hidden" name="quoteId" value="<%= quoteInfo[0].quoteId %>">
+                <textarea name="quote"><%= quoteInfo[0].quote %></textarea>
+                <select name="authorId">
+                    <% for (author of authorsList) { %>
+                        <option value="<%= author.authorId %>">
+                            <%= author.firstName %>
+                                <%= author.lastName %>
+                        </option selected>
+                        <% } %>
+
+                </select>
+                <select name="category">
+                    <% for (category of categoryList) { %>
+                        <option value="<%= category.category %>">
+                            <%= category.category %>
+                        </option selected>
+                        <% } %>
+
+                </select>
+                <button> Update Quote! </button>
+
+            </form>
+
+
+    </body>
+
+</html>
