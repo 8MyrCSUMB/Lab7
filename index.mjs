@@ -178,8 +178,8 @@ app.post('/loginProcess', async (req, res) => {
 
     if (match) {
         req.session.authenticated = true; // session variables
-        req.session.fullName = rows[0].firstname + " " + rows[0].lastname;
-        res.render('home.ejs', { "fullName": req.session.fullName });
+        req.session.username = rows[0].username;
+        res.render('home.ejs', { "username": req.session.username });
     } else {
         let loginError = "Wrong Credentials ! Try Again !"
         // res.locals.loginError = "Wrong Credentials";
